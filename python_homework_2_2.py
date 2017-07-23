@@ -34,7 +34,6 @@ def convert_json_cook_book(cook_book):
     """конвертация рецептов в json-файл"""
     with open("cook_book.json", "w") as f:
         json.dump(cook_book, f, ensure_ascii=False)
-        pprint.pprint(f)
 
 
 def load_json_cook_book():
@@ -89,8 +88,10 @@ def main():
           "1. JSON\n"
           "2. YAML\n")
     if command == "1":
+        convert_json_cook_book(import_cookbook())
         create_shop_list(load_json_cook_book())
     elif command == "2":
+        convert_yaml_cook_book(import_cookbook())
         create_shop_list(load_yaml_cook_book())
 
 main()
